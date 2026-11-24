@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rakesh Kumar Sahu | IT Professional Portfolio</title>
+<meta name="description" content="Rakesh Sahu - IT Support Lead, Senior EUC Engineer and Endpoint Management Professional.">
+<style>
+:root {
+ --navy:#101d33; --blue:#315ee8; --cyan:#28bac5;
+ --text:#18263d; --muted:#69788e; --bg:#f4f7fc;
+ --white:#fff; --line:#e3e9f2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.7 Arial,Helvetica,sans-serif}
+a{text-decoration:none;color:inherit}
+.container{width:min(1150px,92%);margin:auto}
+header{background:white;position:sticky;top:0;z-index:9;border-bottom:1px solid var(--line)}
+nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:21px;font-weight:900;letter-spacing:-1px}
+.logo span{color:var(--blue)}
+.links{display:flex;gap:19px;font-size:13px;font-weight:bold}
+.links a:hover{color:var(--blue)}
+.btn{display:inline-block;padding:12px 19px;background:var(--blue);color:white;border-radius:8px;font-weight:bold;font-size:13px;transition:0.2s}
+.btn:hover{opacity:0.92}
+.btn.outline{background:transparent;border:1px solid #ffffff80}
+.hero{background:linear-gradient(120deg,#101d33,#173b62);color:white;padding:85px 0}
+.hero-grid{display:grid;grid-template-columns:1.5fr .6fr;gap:50px;align-items:center}
+.eyebrow{color:#72dce4;text-transform:uppercase;letter-spacing:3px;font-size:11px;font-weight:bold}
+h1{font-size:clamp(43px,6vw,70px);line-height:1.06;letter-spacing:-3px;margin:20px 0}
+h1 span{color:#80e2e8}
+.hero p{color:#d2dfef;font-size:17px;max-width:680px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+/* Profile Photo Styling + Horizontal Flip */
+.photo{
+  width:265px;
+  height:285px;
+  border:3px solid rgba(255,255,255,0.25);
+  border-radius:20px;
+  overflow:hidden;
+  margin:auto;
+  background:#1c4b82;
+  box-shadow:0 20px 45px rgba(0,0,0,0.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  transform:scaleX(-1); /* Flips the image horizontally */
+  -webkit-transform:scaleX(-1);
+}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:-28px;position:relative}
+.stat,.card{background:white;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 10px 35px #172b4d0b}
+.stat strong{display:block;color:var(--blue);font-size:29px}
+.stat small{color:var(--muted);font-weight:bold}
+section{padding:75px 0}
+section.white{background:white}
+.label{color:var(--blue);font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase}
+h2{font-size:38px;line-height:1.2;letter-spacing:-1.5px;margin:10px 0}
+.intro{color:var(--muted);max-width:760px;font-size:16px}
+.grid2{display:grid;grid-template-columns:1.3fr .7fr;gap:35px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pill{background:#edf2ff;color:#3153ad;padding:7px 12px;border-radius:50px;font-size:12px;font-weight:bold}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:28px}
+.skill{background:white;border:1px solid var(--line);padding:19px;border-radius:13px}
+.skill p{color:var(--muted);font-size:13px;margin-bottom:0}
+.timeline{display:grid;gap:18px;margin-top:30px}
+.job{background:white;border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;grid-template-columns:190px 1fr;gap:22px}
+.date{color:var(--blue);font-size:12px;font-weight:bold}
+.company{color:var(--muted);font-size:12px}
+.job h3{margin:0;font-size:19px}
+.job ul{color:#59677d;padding-left:19px}
+.job li{margin:7px 0}
+.achievements{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.achievement{background:white;border:1px solid var(--line);border-radius:13px;padding:20px}
+.achievement strong{display:block;color:var(--blue);font-size:25px}
+.learning{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:25px}
+.recommendations{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.recommendation{background:white;border:1px solid var(--line);border-radius:14px;padding:22px}
+.person{display:flex;align-items:center;gap:12px}
+.avatar{height:48px;width:48px;border-radius:50%;background:#e7efff;color:var(--blue);display:grid;place-items:center;font-weight:bold;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.recommendation p{font-size:13px;color:#59677d}
+.recommendation a{color:var(--blue);font-weight:bold;font-size:12px}
+.contact{background:var(--navy);color:white;padding:40px;border-radius:18px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.contact p{color:#c9d6e7}
+.contact a:not(.btn){color:#8de2e8}
+footer{padding:28px 0;color:var(--muted);font-size:12px}
+@media(max-width:800px){
+ .links{display:none}.hero-grid,.grid2,.learning{grid-template-columns:1fr}
+ .photo{grid-row:1;width:210px;height:230px}
+ .hero{text-align:center}.hero p{margin:auto}
+ .actions{justify-content:center}
+ .stats{grid-template-columns:1fr;margin-top:15px}
+ .skills{grid-template-columns:1fr 1fr}
+ .job{grid-template-columns:1fr}
+ .achievements{grid-template-columns:1fr 1fr}
+ .recommendations{grid-template-columns:1fr}
+ .contact{display:block}
+}
+@media(max-width:480px){.skills{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- =====================================================
+     ADMIN EDITING AREA
+     Edit all professional information in the PROFILE object below.
+     Save and refresh to update your website.
+====================================================== -->
+<script>
+const PROFILE = {
+ name: "Rakesh Kumar Sahu",
+ photoFile: "Rak.jpg", // Keep Rak.jpg in the same folder as index.html
+ flipPhoto: true,      // Set to false if you ever want the original orientation
+ headline: "IT Support Lead | Senior EUC Engineer",
+ tagline: "Enterprise IT Operations | Endpoint Management | Service Leadership",
+ summary: "IT Support Lead with 10+ years of experience in enterprise IT support, endpoint management and IT service operations. Experienced in leading six IT support engineers, supporting 2,000+ users, technical escalations, SLA compliance, stakeholder management and process improvement.",
+ location: "Bengaluru, India",
+ email: "Rakeshsahu.pro@outlook.com",
+ linkedin: "https://www.linkedin.com/in/rakeshsahu-pro/",
+
+ skills: [
+  ["Endpoint Management", "SCCM/MECM, Intune, MDM and device lifecycle."],
+  ["Microsoft Technologies", "Microsoft 365, Office 365, Entra ID and Active Directory."],
+  ["Operating Systems", "Windows OS, macOS, BSOD troubleshooting, imaging and rebuilding."],
+  ["Endpoint Security", "BitLocker, antivirus, patch management and device compliance."],
+  ["IT Service Management", "Incident, problem, change management and ITIL."],
+  ["ITSM Platforms", "ServiceNow, BMC Remedy / Helix ITSM and Jira Service Management."],
+  ["IT Operations", "SLA management, escalation handling, RCA and service delivery."],
+  ["Automation", "Power Apps, Power Automate and workflow improvement."],
+  ["Leadership", "Team mentoring, training coordination and stakeholder management."],
+  ["Asset Management", "ITAM, inventory, procurement support and lifecycle management."],
+  ["Enterprise Support", "VPN, printers, hardware, software and enterprise applications."],
+  ["Learning Operations", "LMS, training scheduling, learner tracking and reporting."]
+ ],
+
+ experience: [
+  {
+   company: "CSG International System, Bengaluru",
+   role: "Training Coordinator Support Lead",
+   date: "November 2022 – September 2025",
+   points: [
+    "Coordinated end-to-end training operations with trainers, consultants, learners and business stakeholders.",
+    "Managed training calendars, session scheduling, WFM and resource allocation.",
+    "Managed LMS enrollment, course assignments, training allocations and completion tracking.",
+    "Monitored attendance, learner progress, assessment scores and performance.",
+    "Identified learning gaps and recommended appropriate training interventions.",
+    "Prepared training performance reports and management updates.",
+    "Maintained training documentation, learner records and LMS data."
+   ]
+  },
+  {
+   company: "CSG International System, Bengaluru",
+   role: "IT Support L2 | Team Leadership",
+   date: "September 2018 – November 2022",
+   points: [
+    "Led six L1 IT Support Engineers responsible for day-to-day enterprise IT operations.",
+    "Managed ticket queues, incident prioritization, workload distribution and task allocation.",
+    "Delivered L2 support across Windows and macOS environments.",
+    "Troubleshot BSOD, system performance, driver failures, application crashes and OS rebuilding.",
+    "Administered SCCM/MECM and Intune for application deployment, software updates and compliance.",
+    "Supported Active Directory, Entra ID, account administration and access permissions.",
+    "Resolved Microsoft 365, Outlook, Teams, VPN and enterprise application issues.",
+    "Supported BitLocker, antivirus, security updates and patch management.",
+    "Performed RCA and coordinated escalated L2/L3 incidents with infrastructure teams.",
+    "Managed IT assets, OEM coordination, warranty claims, documentation and SOPs."
+   ]
+  },
+  {
+   company: "KPMG Global Services – Client Location | Inknowtech Pvt. Ltd.",
+   role: "Desktop Support Engineer – L1",
+   date: "February 2016 – August 2018",
+   points: [
+    "Supported Office 365, Adobe Creative Cloud, VMware, SQL Server and SVN.",
+    "Installed and troubleshot end-user devices and local/network printers.",
+    "Administered Active Directory, domain integration, user/computer objects and OUs.",
+    "Managed employee onboarding/offboarding and access provisioning with HR.",
+    "Handled incidents and requests through BMC Remedy.",
+    "Provided hardware diagnostics, break/fix and conference-room A/V support.",
+    "Supported inactive account deactivation and asset processes.",
+    "Created SOPs to standardize support workflows."
+   ]
+  },
+  {
+   company: "Wipro InfoTech, Bengaluru – Client Location | Adecco India",
+   role: "System Support Engineer",
+   date: "November 2015 – February 2016",
+   points: [
+    "Delivered technical support for IT infrastructure and desktop systems.",
+    "Assisted with system installations, upgrades and troubleshooting.",
+    "Provided end-user support for desktops, laptops and enterprise applications.",
+    "Resolved blue-screen errors and rebuilt laptops for new users."
+   ]
+  }
+ ],
+
+ achievements: [
+  ["50%", "Reduction in training ticket volume through AI chatbot deployment"],
+  ["20%", "Improvement in operational efficiency through automation"],
+  ["Spotlight", "Spotlight on Excellence – CSG System"],
+  ["Extra Miler", "Extra Miler Award – KPMG Global Services"]
+ ],
+
+ certifications: [
+  "Microsoft Entra ID for Administrators – LinkedIn Learning",
+  "MD-102 Endpoint Administrator – learning certificate listed in CV",
+  "Building the Reputation and Skills to Become a First-Time Manager",
+  "Agile Methodologies",
+  "Be10x Certificate on AI Tools",
+  "Analyzing and Visualizing Data with Microsoft Power BI",
+  "First-Time Manager Program",
+  "DevOps Foundations: Lean & Agile",
+  "Sim Tech Certified Telecom Networking Engineer (SCTNE)"
+ ],
+
+ education: "B.Tech in Information Technology – CIET Raipur, 2014",
+
+ recommendations: [
+  // Paste real LinkedIn recommendations below when ready:
+  // {
+  //  name: "Manager's Name",
+  //  role: "Director / Manager, Company",
+  //  photo: "manager.jpg",
+  //  initials: "MN",
+  //  quote: "Paste the exact recommendation text here.",
+  //  linkedin: "https://www.linkedin.com/in/manager-profile/"
+  // }
+ ]
+};
+</script>
+
+<header>
+<div class="container">
+<nav>
+ <a class="logo" href="#home">RAKESH<span>.</span>SAHU</a>
+ <div class="links">
+  <a href="#about">About</a>
+  <a href="#skills">Expertise</a>
+  <a href="#experience">Experience</a>
+  <a href="#achievements">Achievements</a>
+  <a href="#learning">Learning</a>
+  <a href="#recommendations">Recommendations</a>
+  <a href="#contact">Contact</a>
+ </div>
+ <a class="btn" href="Resume.docx" download>Download CV ↗</a>
+</nav>
+</div>
+</header>
+
+<section class="hero" id="home">
+<div class="container hero-grid">
+ <div>
+  <div class="eyebrow">Professional Portfolio · Enterprise IT</div>
+  <h1>Rakesh Kumar<br><span>Sahu.</span></h1>
+  <h3 id="headline"></h3>
+  <p id="summary"></p>
+  <div class="actions">
+   <a class="btn" href="#experience">Explore my career ↓</a>
+   <a class="btn outline" id="heroLinkedin" target="_blank">LinkedIn Profile ↗</a>
+  </div>
+ </div>
+ <div>
+  <div class="photo" id="photoBox">
+   <img id="profileImg" src="Rak.jpg" alt="Rakesh Kumar Sahu">
+  </div>
+ </div>
+</div>
+</section>
+
+<div class="container">
+<div class="stats">
+ <div class="stat"><strong>10+ Years</strong><small>IT Experience</small></div>
+ <div class="stat"><strong>6 Engineers</strong><small>Team Leadership</small></div>
+ <div class="stat"><strong>2,000+</strong><small>Users Supported</small></div>
+</div>
+</div>
+
+<section id="about">
+<div class="container grid2">
+ <div>
+  <div class="label">About me</div>
+  <h2>Technology support with an operations mindset.</h2>
+  <p class="intro" id="aboutSummary"></p>
+  <div class="pills">
+   <span class="pill">Enterprise IT</span>
+   <span class="pill">Endpoint Engineering</span>
+   <span class="pill">Service Delivery</span>
+   <span class="pill">Team Leadership</span>
+   <span class="pill">Continuous Improvement</span>
+  </div>
+ </div>
+ <div class="card">
+  <h3>Professional snapshot</h3>
+  <p><b>Location</b><br><span id="location"></span></p>
+  <p><b>Education</b><br><span id="education"></span></p>
+  <p><b>Email</b><br><a id="emailLink"></a></p>
+  <p><b>LinkedIn</b><br><a id="profileLink" target="_blank"></a></p>
+ </div>
+</div>
+</section>
+
+<section class="white" id="skills">
+<div class="container">
+ <div class="label">Technical expertise</div>
+ <h2>Tools, platforms & capabilities</h2>
+ <p class="intro">Enterprise technologies and professional capabilities from my career experience.</p>
+ <div class="skills" id="skillsGrid"></div>
+</div>
+</section>
+
+<section id="experience">
+<div class="container">
+ <div class="label">Career journey</div>
+ <h2>Professional experience</h2>
+ <p class="intro">From foundational desktop support to enterprise L2 operations, leadership and training coordination.</p>
+ <div class="timeline" id="experienceGrid"></div>
+</div>
+</section>
+
+<section class="white" id="achievements">
+<div class="container">
+ <div class="label">Professional impact</div>
+ <h2>Achievements & recognition</h2>
+ <div class="achievements" id="achievementGrid"></div>
+</div>
+</section>
+
+<section id="learning">
+<div class="container">
+ <div class="label">Growth mindset</div>
+ <h2>Learning & education</h2>
+ <div class="learning">
+  <div class="card">
+   <h3>Certifications & learning</h3>
+   <ul id="certList"></ul>
+  </div>
+  <div class="card">
+   <h3>Academic background</h3>
+   <p id="educationCard"></p>
+   <h3>Professional interests</h3>
+   <p>Microsoft Intune, endpoint engineering, SCCM/MECM, Entra ID, Microsoft 365, automation, IT operations and people leadership.</p>
+  </div>
+ </div>
+</div>
+</section>
+
+<section class="white" id="recommendations">
+<div class="container">
+ <div class="label">Professional testimonials</div>
+ <h2>What colleagues & leaders say</h2>
+ <p class="intro">Professional recommendations from managers, directors and colleagues.</p>
+ <div class="recommendations" id="recommendationGrid"></div>
+ <p style="margin-top:25px">
+  <a class="btn" id="recommendationLink" target="_blank">
+   View all LinkedIn recommendations ↗
+  </a>
+ </p>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+ <div class="contact">
+  <div>
+   <div class="label" style="color:#82e0e7">Connect professionally</div>
+   <h2>Let's create better IT experiences.</h2>
+   <p>Open to opportunities in IT Support Leadership, EUC Engineering, Endpoint Management and IT Operations.</p>
+   <p id="contactEmail"></p>
+  </div>
+  <div class="actions">
+   <a class="btn" id="contactMail">Email me ↗</a>
+   <a class="btn outline" id="contactLinkedin" target="_blank">LinkedIn ↗</a>
+  </div>
+ </div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+© <span id="year"></span> Rakesh Kumar Sahu · Professional Portfolio
+</div>
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+}[c]));
+
+// Configure Profile Photo & Horizontal Flip
+const imgEl = $("profileImg");
+imgEl.src = PROFILE.photoFile;
+imgEl.style.transform = PROFILE.flipPhoto ? "scaleX(-1)" : "none";
+imgEl.onerror = () => {
+  $("photoBox").innerHTML = '<span style="color:white;font-size:65px;font-weight:bold">RS</span>';
+};
+
+$("headline").textContent=PROFILE.headline+" | "+PROFILE.tagline;
+$("summary").textContent=PROFILE.summary;
+$("aboutSummary").textContent=PROFILE.summary;
+$("location").textContent=PROFILE.location;
+$("education").textContent=PROFILE.education;
+$("educationCard").textContent=PROFILE.education;
+$("emailLink").textContent=PROFILE.email;
+$("emailLink").href="mailto:"+PROFILE.email;
+$("profileLink").textContent=PROFILE.linkedin;
+$("profileLink").href=PROFILE.linkedin;
+$("heroLinkedin").href=PROFILE.linkedin;
+$("contactLinkedin").href=PROFILE.linkedin;
+$("contactMail").href="mailto:"+PROFILE.email;
+$("contactEmail").textContent=PROFILE.email;
+$("recommendationLink").href= PROFILE.linkedin.replace(/\/$/,"")+"/details/recommendations/";
+$("year").textContent=new Date().getFullYear();
+
+$("skillsGrid").innerHTML=PROFILE.skills.map(s=>
+ `<article class="skill"><b>${safe(s[0])}</b><p>${safe(s[1])}</p></article>`
+).join("");
+
+$("experienceGrid").innerHTML=PROFILE.experience.map(j=>
+ `<article class="job">
+  <div><div class="date">${safe(j.date)}</div>
+  <div class="company">${safe(j.company)}</div></div>
+  <div><h3>${safe(j.role)}</h3>
+  <ul>${j.points.map(p=>`<li>${safe(p)}</li>`).join("")}</ul></div>
+ </article>`
+).join("");
+
+$("achievementGrid").innerHTML=PROFILE.achievements.map(a=>
+ `<article class="achievement"><strong>${safe(a[0])}</strong>
+ <span>${safe(a[1])}</span></article>`
+).join("");
+
+$("certList").innerHTML=PROFILE.certifications.map(c=>
+ `<li>${safe(c)}</li>`
+).join("");
+
+$("recommendationGrid").innerHTML=PROFILE.recommendations.length
+ ?PROFILE.recommendations.map(r=>
+ `<article class="recommendation">
+  <div class="person">
+   <div class="avatar">${r.photo
+    ?`<img src="${safe(r.photo)}" alt="">`
+    :safe(r.initials||"")}</div>
+   <div><b>${safe(r.name)}</b><br>
+   <small>${safe(r.role||"")}</small></div>
+  </div>
+  <p>“${safe(r.quote)}”</p>
+  ${r.linkedin?`<a href="${safe(r.linkedin)}" target="_blank">View LinkedIn profile ↗</a>`:""}
+ </article>`
+ ).join("")
+ :`<article class="recommendation">
+  <b>LinkedIn recommendations</b>
+  <p>Recommendation cards will be added when the original recommendation text and photos are supplied.</p>
+  <a href="${safe(PROFILE.linkedin)}" target="_blank">Visit my LinkedIn profile ↗</a>
+ </article>`;
+</script>
+</body>
+</html>
